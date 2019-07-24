@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Locale;
 
 public class DateService {
 
@@ -41,15 +42,12 @@ public class DateService {
     }
 
     public void ParsingDate() {
-        String date = "Mon, Jul 22, 2018 12:10:12 PM";
+        String date = "Monday, July 22, 2019 12:10:12 PM";
 
         try {
-            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("E, LLL dd, yyyy hh:mm:ss a");
-            LocalDate parseDate = LocalDate.parse(date, dateTimeFormatter);
-            System.out.println(date + " parsing to " + parseDate);
-            DateTimeFormatter tryFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDate tryParseDate = LocalDate.parse(date, tryFormatter);
-            System.out.println(date + " parsing to " + tryParseDate);
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("EEEE, MMMM dd, yyyy hh:mm:ss a", Locale.US);
+            DateTimeFormatter tryFormatter = DateTimeFormatter.ISO_DATE;
+            System.out.println(date + " parsing to : " + tryFormatter.format(LocalDate.parse(date, dateTimeFormatter)));
         } catch (DateTimeParseException ex) {
             ex.printStackTrace();
         }

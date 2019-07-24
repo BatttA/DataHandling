@@ -14,7 +14,7 @@ public class NumbersService {
         BigDecimal radiusSquare = new BigDecimal(pow(radius, 2));
         BigDecimal area = BigDecimal.valueOf(PI).multiply(radiusSquare);
         area.setScale(scale);
-        System.out.println(area);
+        System.out.println("Radius circle - " + radius + " , area of circle = " + area);
     }
 
     public void CheckDoublle() {
@@ -36,6 +36,7 @@ public class NumbersService {
         double maximumNumber = max(max(a,b),c);
         double minimalNumber = min(min(a,b),c);
 
+        System.out.println("Numbers: " + a + " , " + b + " , " + c);
         System.out.println("Max number is " + maximumNumber);
         System.out.println("Min number is " + minimalNumber);
     }
